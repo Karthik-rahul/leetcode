@@ -1,0 +1,53 @@
+class Solution {
+    public boolean isTrionic(int[] nums) {
+        int i,a=1;
+        boolean flag=false;
+        if(nums.length<4){
+            return false;
+        }
+        else{
+        for(i=0;i<(nums.length)-1;i++){
+            if(a==1){
+                if(nums[i]<nums[i+1]){
+                    flag=true;
+                    continue;
+                }
+                else if(nums[i]>nums[i+1]){
+                    if(flag){
+                    a=2;}
+                    else{
+                        return false;
+                    }
+                }
+                else{
+                    return false;
+                }
+
+                }
+             else if(a==2){
+                if(nums[i]>nums[i+1]){
+                    continue;
+                }
+                else if(nums[i]<nums[i+1]){
+                    a=3;
+                }
+                else{
+                    return false;
+                }
+
+            }
+            else{
+                 if(nums[i]<nums[i+1]){
+                    continue;
+                }
+                else{
+                    return false;
+                }
+
+            }
+            
+        }
+        return a==3;
+        }
+    }
+}
