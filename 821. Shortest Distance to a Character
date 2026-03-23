@@ -1,0 +1,37 @@
+class Solution {
+    public int[] shortestToChar(String s, char c) {
+        int i,j,k=0,sum,min,inc=0;
+        List<Integer> al = new ArrayList<>();
+        List<Integer> al1 = new ArrayList<>();
+        int len=s.length();
+        int[] result=new int[len];
+        for(i=0;i<len;i++){
+            char ch=s.charAt(i);
+            if(ch==c){
+                al.add(i);
+               
+            }
+        }
+        for(i=0;i<len;i++){
+            min=Integer.MAX_VALUE;
+            for(j=0;j<al.size();j++){
+                sum=Math.abs(i-al.get(j));
+                al1.add(sum);               
+                if(min>=sum){
+                   min=sum;
+                    result[i]=min;
+                }   
+                if(al.size()==1){
+                   result[i]=sum;
+                }
+                if(i==al.get(j)){
+                    result[i]=0;
+                }      
+             
+
+            }
+        }
+        return result;
+        
+    }
+}
