@@ -1,0 +1,14 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        
+        TreeSet<Integer> ts=new TreeSet<>();
+        for(int i:nums){
+            ts.add(i);
+        }
+        List<Integer> l=new ArrayList<>(ts);
+        if(l.size()<3){
+            return Collections.max(l);
+        }
+        return l.get(l.size()-3);
+    }
+}
