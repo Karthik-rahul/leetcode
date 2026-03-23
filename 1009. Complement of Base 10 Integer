@@ -1,0 +1,19 @@
+class Solution {
+    public int bitwiseComplement(int n) {
+        String a=Integer.toBinaryString(n);
+        int i;
+        System.out.print(a);
+        StringBuilder sb = new StringBuilder();
+        for(i=0;i<a.length();i++){
+            char ch=a.charAt(i);
+            if(ch=='0'){
+                sb.append('1');
+            }else{
+                sb.append('0');
+            }
+        }
+
+        return Integer.parseInt(sb.toString(),2);
+        
+    }
+}
