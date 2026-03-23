@@ -1,0 +1,31 @@
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int i,j,sum;
+        boolean flag=true;
+        List<Boolean> li=new ArrayList<>();
+        for(i=0;i<candies.length;i++){
+            sum=candies[i]+extraCandies;
+            for(j=0;j<candies.length;j++){
+                if(i==j){
+                    continue;
+                }
+                else if(sum<candies[j]){
+                   flag=false;
+                   break;
+
+                }
+                else{
+                    flag=true;
+                }
+
+            }
+            if(flag){
+            li.add(true);
+            }
+            else{
+                li.add(false);
+            }
+        }  
+        return li;
+    }
+}
